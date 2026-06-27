@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Raporlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mb-4">Raporlar</h2>
+
+<div class="mb-4">
+    <a href="/Report/ExportProductsToExcel" class="btn btn-success">
+        Excel İndir
+    </a>
+
+    <a href="/Report/ExportProductsToPdf" class="btn btn-danger">
+        PDF İndir
+    </a>
+</div>
+
+<div class="row">
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow border-left-primary">
+            <div class="card-body">
+                <h6>Toplam Kategori</h6>
+                <h3>@ViewBag.CategoryCount</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow border-left-success">
+            <div class="card-body">
+                <h6>Toplam Ürün</h6>
+                <h3>@ViewBag.ProductCount</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow border-left-info">
+            <div class="card-body">
+                <h6>Toplam Tedarikçi</h6>
+                <h3>@ViewBag.SupplierCount</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow border-left-warning">
+            <div class="card-body">
+                <h6>Toplam Sipariş</h6>
+                <h3>@ViewBag.OrderCount</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card shadow mt-4">
+    <div class="card-header bg-primary text-white">
+        Detaylı Raporlar
+    </div>
+
+    <div class="card-body">
+        <p><strong>Toplam Stok:</strong> @ViewBag.TotalStock</p>
+        <p><strong>Toplam Ciro:</strong> @ViewBag.TotalRevenue ₺</p>
+        <p><strong>En Pahalı Ürün:</strong> @ViewBag.MostExpensiveProduct</p>
+        <p><strong>En Ucuz Ürün:</strong> @ViewBag.CheapestProduct</p>
+        <p><strong>Ortalama Ürün Fiyatı:</strong> @ViewBag.AveragePrice</p>
+        <p><strong>En Fazla Stoğa Sahip Ürün:</strong> @ViewBag.TopStockProduct</p>
+        <p><strong>En Çok Alışveriş Yapan Müşteri:</strong> @ViewBag.TopCustomer</p>
+    </div>
+</div>
+
+<div class="card shadow mt-4">
+    <div class="card-header bg-success text-white">
+        Şehre Göre Tedarikçi Sayısı
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Şehir</th>
+                    <th>Tedarikçi Sayısı</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in ViewBag.SupplierCityReport)
+                {
+                    <tr>
+                        <td>@item.City</td>
+                        <td>@item.Count</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

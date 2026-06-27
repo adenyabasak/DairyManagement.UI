@@ -1,0 +1,40 @@
+﻿@model DairyManagement.Entity.Product
+
+@{
+    ViewData["Title"] = "Ürün Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Ürün Ekle</h2>
+
+<form method="post">
+
+    <div class="mb-3">
+        <label class="form-label">Ürün Adı</label>
+        <input asp-for="ProductName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Fiyat</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Stok</label>
+        <input asp-for="Stock" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Kategori</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control">
+            <option value="">Kategori Seçiniz</option>
+        </select>
+    </div>
+
+    <button class="btn btn-success">Kaydet</button>
+
+    <a href="/Product" class="btn btn-secondary">
+        Geri Dön
+    </a>
+
+</form>

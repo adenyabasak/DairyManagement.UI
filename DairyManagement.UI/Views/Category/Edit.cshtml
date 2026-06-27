@@ -1,0 +1,30 @@
+﻿@model DairyManagement.Entity.Category
+
+@{
+    ViewData["Title"] = "Kategori Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kategori Güncelle</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="CategoryId" />
+
+    <div class="mb-3">
+        <label class="form-label">Kategori Adı</label>
+
+        <input asp-for="CategoryName"
+               class="form-control" />
+    </div>
+
+    <button class="btn btn-warning">
+        Güncelle
+    </button>
+
+    <a href="/Category"
+       class="btn btn-secondary">
+        Geri Dön
+    </a>
+
+</form>

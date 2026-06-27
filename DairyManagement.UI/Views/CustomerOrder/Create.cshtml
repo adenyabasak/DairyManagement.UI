@@ -1,0 +1,45 @@
+﻿@model DairyManagement.Entity.CustomerOrder
+
+@{
+    ViewData["Title"] = "Sipariş Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sipariş Ekle</h2>
+
+<form method="post">
+
+    <div class="mb-3">
+        <label>Müşteri Adı</label>
+        <input asp-for="CustomerName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Ürün Adı</label>
+        <input asp-for="ProductName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Adet</label>
+        <input asp-for="Quantity" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Toplam Tutar</label>
+        <input asp-for="TotalPrice" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Sipariş Tarihi</label>
+        <input asp-for="OrderDate" type="date" class="form-control" />
+    </div>
+
+    <button class="btn btn-success">
+        Kaydet
+    </button>
+
+    <a href="/CustomerOrder" class="btn btn-secondary">
+        Geri Dön
+    </a>
+
+</form>

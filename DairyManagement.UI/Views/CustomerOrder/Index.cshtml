@@ -1,0 +1,53 @@
+﻿@model List<DairyManagement.Entity.CustomerOrder>
+
+@{
+    ViewData["Title"] = "Sipariş Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sipariş Listesi</h2>
+
+<a href="/CustomerOrder/Create" class="btn btn-primary mb-3">
+    Yeni Sipariş
+</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Müşteri Adı</th>
+            <th>Ürün Adı</th>
+            <th>Adet</th>
+            <th>Toplam Tutar</th>
+            <th>Sipariş Tarihi</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CustomerOrderId</td>
+                <td>@item.CustomerName</td>
+                <td>@item.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.TotalPrice</td>
+                <td>@item.OrderDate.ToShortDateString()</td>
+
+                <td>
+                    <a href="/CustomerOrder/Delete/@item.CustomerOrderId" class="btn btn-danger">
+                        Sil
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/CustomerOrder/Edit/@item.CustomerOrderId" class="btn btn-warning">
+                        Güncelle
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@model List<DairyManagement.Entity.Product>
+
+@{
+    ViewData["Title"] = "Ürün Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Ürün Listesi</h2>
+
+<a href="/Product/Create" class="btn btn-primary mb-3">
+    Yeni Ürün
+</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Stok</th>
+            <th>Kategori</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+                <td>@item.Stock</td>
+                <td>@item.Category.CategoryName</td>
+                <td>
+                    <a href="/Product/Delete/@item.ProductId" class="btn btn-danger">
+                        Sil
+                    </a>
+                </td>
+                <td>
+                    <a href="/Product/Edit/@item.ProductId" class="btn btn-warning">
+                        Güncelle
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

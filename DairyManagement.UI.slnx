@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="DairyManagement.Data/DairyManagement.Data.csproj" />
+  <Project Path="DairyManagement.Entity/DairyManagement.Entity.csproj" />
+  <Project Path="DairyManagement.UI/DairyManagement.UI.csproj" />
+</Solution>

@@ -1,0 +1,37 @@
+﻿@model DairyManagement.Entity.Supplier
+
+@{
+    ViewData["Title"] = "Tedarikçi Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Tedarikçi Güncelle</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="SupplierId" />
+
+    <div class="mb-3">
+        <label>Tedarikçi Adı</label>
+        <input asp-for="SupplierName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Şehir</label>
+        <input asp-for="City" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Telefon</label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+
+    <button class="btn btn-warning">
+        Güncelle
+    </button>
+
+    <a href="/Supplier" class="btn btn-secondary">
+        Geri Dön
+    </a>
+
+</form>
